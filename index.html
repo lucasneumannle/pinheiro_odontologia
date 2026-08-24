@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<!--
+  ============================================================================
+  SITE BASE — CLÍNICA ODONTOLÓGICA  ·  Neumann Dev
+  Arquivo único, autossuficiente. Sem build, sem dependências pesadas.
+  Pronto para GitHub Pages + subdomínio na Cloudflare.
+  ============================================================================
+
+  COMO PERSONALIZAR: dê "localizar e substituir" em cada marcador  abaixo.
+  A cor da marca fica em UMA variável CSS (--primary) no bloco :root.
+
+  ── PLACEHOLDERS DO BRIEFING ────────────────────────────────────────────────
+  Pinheiro Odontologia       Nome da clínica
+  Dr. Marcelo Pinheiro            Nome do dentista responsável técnico
+  CRO-SC (a confirmar)                Nº de inscrição no CRO — ex.: "CRO-SC 12345"  (obrigatório por lei)
+  São Bento do Sul             Cidade
+  Centro             Bairro (SEO local)
+  Av. Dom Pedro II, 62 — Centro, São Bento do Sul - SC, 89280-139  Endereço completo (rodapé + mapa)
+  (47) 3626-8126           Telefone de exibição — ex.: "(47) 3333-4444"
+  5547984802548           Número internacional p/ wa.me — ex.: 5547999998888 (só dígitos)
+  imagens/logo.jpg           Caminho da logo — ex.: imagens/logo.svg  (opcional; sem logo = nome estilizado)
+  imagens/fachada.png       ex.: imagens/fachada.jpg
+  imagens/fachada.png      ex.: imagens/recepcao.jpg
+  imagens/fachada.png   ex.: imagens/consultorio.jpg
+  imagens/fachada.png        ex.: imagens/equipe.jpg
+  Seg a Sex, 8h às 18h30            Texto de horário — ex.: "Seg a Sex, 8h às 18h"
+  https://www.google.com/maps?q=Av.+Dom+Pedro+II+62+São+Bento+do+Sul+SC&output=embed     URL do embed do Google Maps (src do iframe)
+  --primary (CSS)        Cor de destaque — default #0E7C86 (petróleo). Use tom médio/escuro.
+
+  ── EXTRAS (adicionados p/ SEO e prova social — edite ou remova) ─────────────
+  https://pinheiroodontologia.neumanndev.com           URL final do site — ex.: https://clinica.exemplo.com.br
+  imagens/fachada.png            Imagem de compartilhamento social — ex.: imagens/og.jpg (pode ser a fachada)
+  SC          UF — ex.: SC        (JSON-LD)
+  89280-139                CEP — ex.: 88000-000 (JSON-LD)
+  -26.2510           Latitude — ex.: -26.9187  (JSON-LD geo)
+  -49.3790          Longitude — ex.: -49.0661 (JSON-LD geo)
+  Mo-Fr 08:00-18:30     Horário em formato schema — ex.: "Mo-Fr 08:00-18:00"
+  # Link do perfil do Google (avaliações)
+      Depoimentos reais do Google (texto + nome). Use SOMENTE avaliações reais.
+
+  ── PLACEHOLDERS NOVOS (criados nesta revisão anti-"cara de IA") ─────────────
+  Ortodontia, implante, prótese e clínica geral — atendimento cuidadoso, do primeiro contato ao acompanhamento. Hero. UMA frase concreta e verdadeira da clínica.
+                          Ex.: "Atendemos com hora marcada e sem sala de espera lotada."
+                          Sem adjetivo vazio ("acolhedor", "excelência") e mantendo
+                          o padrão CFO (sem preço, sem superlativo, sem "garantido").
+          Sobre. Nº de anos de atuação — ex.: "12".
+                          Clínica nova? Apague o trecho "há  anos".
+  Cada atendimento começa por entender o seu caso. Você recebe o diagnóstico e as opções com clareza, e decide com calma.     Sobre. 1–2 frases concretas de como a clínica trabalha de
+                          verdade. Ex.: "Explico o plano em etapas e passo o orçamento
+                          por escrito, para você decidir com calma."
+
+  ── CONFORMIDADE CFO (já respeitada neste template) ─────────────────────────
+  · Sem antes/depois, sem imagens de procedimento/instrumental/tecidos.
+  · Sem preço, promoção, desconto ou brinde.
+  · Sem urgência/sensacionalismo/superlativos ("melhor da cidade", "garantido"...).
+  · Responsável técnico + CRO visíveis no rodapé (exigência legal).
+  · Fotos: use APENAS imagens reais da estrutura (fachada, recepção, consultório, equipe).
+  ============================================================================
+-->
+
+<title>Dentista em Centro, São Bento do Sul | Pinheiro Odontologia</title>
+<meta name="description" content="Pinheiro Odontologia — clínica odontológica em Centro, São Bento do Sul. Clínico geral, implantes, ortodontia, próteses e mais. Agende sua avaliação pelo WhatsApp." />
+<link rel="canonical" href="https://pinheiroodontologia.neumanndev.com" />
+<meta name="theme-color" content="#F8F6F2" />
+
+<!-- Open Graph / social -->
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="pt_BR" />
+<meta property="og:title" content="Pinheiro Odontologia — Dentista em Centro, São Bento do Sul" />
+<meta property="og:description" content="Atendimento odontológico em Centro, São Bento do Sul. Agende sua avaliação pelo WhatsApp." />
+<meta property="og:url" content="https://pinheiroodontologia.neumanndev.com" />
+<meta property="og:image" content="imagens/fachada.png" />
+<meta name="twitter:card" content="summary_large_image" />
+
+<!-- Fontes -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+
+<!-- JSON-LD: SEO local + AI Overviews -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Dentist",
+  "name": "Pinheiro Odontologia",
+  "url": "https://pinheiroodontologia.neumanndev.com",
+  "image": "imagens/fachada.png",
+  "telephone": "(47) 3626-8126",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Av. Dom Pedro II, 62 — Centro, São Bento do Sul - SC, 89280-139",
+    "addressLocality": "São Bento do Sul",
+    "addressRegion": "SC",
+    "postalCode": "89280-139",
+    "addressCountry": "BR"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "-26.2510",
+    "longitude": "-49.3790"
+  },
+  "openingHours": "Mo-Fr 08:00-18:30",
+  "areaServed": "São Bento do Sul",
+  "medicalSpecialty": "Dentistry"
+}
+</script>
+
+<style>
+  /* ===== TOKENS ===================================================== */
+  :root{
+    /* >>> ÚNICA COR PARA TROCAR POR CLÍNICA <<< (tom médio/escuro p/ contraste) */
+    --primary: ; /* default clínico: #0E7C86 */
+
+    /* Tudo abaixo deriva automaticamente da --primary */
+    --primary-strong: color-mix(in srgb, var(--primary), #000 20%);
+    --primary-hover:  color-mix(in srgb, var(--primary), #000 34%);
+    --primary-soft:   color-mix(in srgb, var(--primary), #fff 86%);
+    --primary-tint:   color-mix(in srgb, var(--primary), #fff 93%);
+    --primary-line:   color-mix(in srgb, var(--primary), #fff 74%);
+
+    --bone:   #F8F6F2;   /* fundo quente */
+    --paper:  #FFFFFF;   /* cartões */
+    --ink:    #17211E;   /* texto principal (near-black esverdeado) */
+    --muted:  #55625E;   /* texto secundário */
+    --hair:   #E4E0D8;   /* linhas finas */
+    --gold:   #C6A15B;   /* estrelas de avaliação */
+
+    --radius: 16px;
+    --arch: 190px;       /* raio do topo do "arco" (assinatura) */
+    --shadow-sm: 0 1px 2px rgba(23,33,30,.05), 0 8px 24px -18px rgba(23,33,30,.25);
+    --shadow-md: 0 2px 6px rgba(23,33,30,.06), 0 30px 60px -40px rgba(23,33,30,.35);
+    --maxw: 1120px;
+    --pad: clamp(20px, 5vw, 40px);
+  }
+
+  *,*::before,*::after{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; -webkit-text-size-adjust:100%; }
+  body{
+    margin:0;
+    background:var(--bone);
+    color:var(--ink);
+    font-family:"Instrument Sans", system-ui, -apple-system, sans-serif;
+    font-size:17px;
+    line-height:1.6;
+    letter-spacing:.005em;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+    overflow-x:hidden;
+  }
+  img{ max-width:100%; display:block; }
+  a{ color:inherit; }
+
+  h1,h2,h3{
+    font-family:"Bricolage Grotesque", sans-serif;
+    font-weight:600;
+    line-height:1.08;
+    letter-spacing:-0.02em;
+    margin:0;
+    text-wrap:balance;
+  }
+
+  .wrap{ width:100%; max-width:var(--maxw); margin-inline:auto; padding-inline:var(--pad); }
+
+  /* Locator discreto do hero (sem traço decorativo, sem caixa-alta forçada) */
+  .hero-kicker{
+    font-family:"Instrument Sans", system-ui, sans-serif;
+    font-size:.76rem;
+    letter-spacing:.03em;
+    color:var(--muted);
+    margin:0 0 1rem;
+  }
+
+  /* Índice de seção integrado ao título — numeral sutil no lugar do rótulo tracejado */
+  .s-num{
+    font-family:"Instrument Sans", system-ui, sans-serif;
+    font-size:.6em;
+    font-weight:600;
+    letter-spacing:.04em;
+    color:var(--primary-strong);
+    vertical-align:.6em;
+    margin-right:.6em;
+  }
+
+  /* ===== BOTÕES ===================================================== */
+  .btn{
+    display:inline-flex; align-items:center; justify-content:center; gap:.55em;
+    font-family:"Instrument Sans", sans-serif;
+    font-weight:600; font-size:1rem; line-height:1;
+    padding:.95em 1.5em; border-radius:999px;
+    text-decoration:none; cursor:pointer; border:1px solid transparent;
+    min-height:48px; transition:transform .18s ease, background .18s ease, box-shadow .18s ease, color .18s ease;
+    will-change:transform;
+  }
+  .btn svg{ width:1.1em; height:1.1em; flex:none; }
+  .btn-primary{ background:var(--primary-strong); color:#fff; box-shadow:var(--shadow-sm); }
+  .btn-primary:hover{ background:var(--primary-hover); transform:translateY(-2px); }
+  .btn-ghost{ background:transparent; color:var(--ink); border-color:var(--hair); }
+  .btn-ghost:hover{ border-color:var(--primary); color:var(--primary-strong); background:var(--paper); }
+
+  /* ===== HEADER FIXO ================================================ */
+  header.site{
+    position:fixed; inset:0 0 auto 0; z-index:60;
+    background:color-mix(in srgb, var(--bone), transparent 12%);
+    backdrop-filter:saturate(140%) blur(12px);
+    -webkit-backdrop-filter:saturate(140%) blur(12px);
+    border-bottom:1px solid transparent;
+    transition:border-color .3s ease, box-shadow .3s ease;
+  }
+  header.site.scrolled{ border-bottom-color:var(--hair); box-shadow:0 10px 30px -28px rgba(23,33,30,.6); }
+  .bar{ display:flex; align-items:center; justify-content:space-between; gap:16px; height:70px; }
+  .brand{ display:flex; align-items:center; gap:.6rem; text-decoration:none; color:var(--ink); font-family:"Bricolage Grotesque",sans-serif; font-weight:600; font-size:1.15rem; letter-spacing:-0.02em; }
+  .brand img{ height:34px; width:auto; }
+  .brand .mark{ /* usado se não houver logo */
+    width:34px;height:34px;border-radius:10px;flex:none;
+    background:var(--primary-soft); color:var(--primary-strong);
+    display:grid;place-items:center; border:1px solid var(--primary-line);
+  }
+  .brand .mark svg{ width:20px;height:20px; }
+  .header-cta{ padding:.7em 1.15em; min-height:44px; font-size:.94rem; }
+  .header-cta .lbl-full{ display:none; }
+  @media(min-width:560px){ .header-cta .lbl-full{ display:inline; } .header-cta .lbl-short{ display:none; } }
+
+  /* ===== HERO ======================================================= */
+  .hero{ position:relative; padding-top:118px; padding-bottom:clamp(48px,8vw,88px); overflow:clip; }
+  .hero::before{ /* luz limpa (atmosfera) */
+    content:""; position:absolute; z-index:0; top:-16%; right:-10%;
+    width:min(720px,90vw); aspect-ratio:1; border-radius:50%;
+    background:radial-gradient(circle, var(--primary-tint), transparent 62%);
+    pointer-events:none;
+  }
+  .hero-grid{ position:relative; z-index:1; display:grid; gap:clamp(32px,5vw,56px); align-items:center; }
+  @media(min-width:900px){ .hero-grid{ grid-template-columns:1.05fr .95fr; } }
+
+  .hero h1{ font-size:clamp(2.05rem, 6vw, 3.5rem); margin-bottom:1.1rem; }
+  .hero h1 .loc{ color:var(--primary-strong); }
+  .hero p.lead{ font-size:clamp(1.05rem,2.4vw,1.22rem); color:var(--muted); max-width:46ch; margin:0 0 1.9rem; }
+  .hero-actions{ display:flex; flex-wrap:wrap; gap:.75rem; }
+
+  .trust{ display:flex; flex-wrap:wrap; gap:.5rem .5rem; margin-top:2rem; }
+  .chip{
+    font-family:"Instrument Sans", system-ui, sans-serif; font-size:.74rem; letter-spacing:.03em;
+    background:var(--paper); border:1px solid var(--hair); color:var(--muted);
+    padding:.5em .8em; border-radius:999px; display:inline-flex; align-items:center; gap:.5em;
+  }
+  .chip svg{ width:14px;height:14px;color:var(--primary-strong); }
+
+  /* Assinatura: moldura em arco */
+  .arch{
+    position:relative;
+    border-radius:var(--arch) var(--arch) var(--radius) var(--radius);
+    overflow:hidden;
+    background:var(--primary-soft);
+    box-shadow:var(--shadow-md);
+    aspect-ratio:4/5;
+  }
+  .arch::after{ content:""; position:absolute; inset:0; border-radius:inherit; box-shadow:inset 0 0 0 1px rgba(23,33,30,.06); pointer-events:none; }
+  .arch img{ width:100%; height:100%; object-fit:cover; }
+  .hero-photo{ max-width:420px; margin-inline:auto; }
+  .hero-photo .badge{
+    position:absolute; left:16px; bottom:16px; z-index:2;
+    background:color-mix(in srgb, var(--ink), transparent 8%); color:var(--bone);
+    font-family:"Instrument Sans", system-ui, sans-serif; font-size:.7rem; letter-spacing:.04em;
+    padding:.55em .8em; border-radius:10px; display:flex; align-items:center; gap:.5em;
+  }
+  .hero-photo .badge b{ font-weight:500; color:#fff; }
+
+  /* ===== SEÇÕES GENÉRICAS =========================================== */
+  .section{ padding-block:clamp(56px,9vw,104px); position:relative; }
+  .section--tint{ background:var(--primary-tint); }
+  .section-head{ max-width:60ch; margin-bottom:clamp(32px,5vw,52px); }
+  .section-head h2{ font-size:clamp(1.7rem,4vw,2.5rem); }
+  .section-head p{ color:var(--muted); margin:1rem 0 0; font-size:1.08rem; }
+
+  /* ===== SERVIÇOS =================================================== */
+  .services{ display:grid; gap:16px; grid-template-columns:1fr; }
+  @media(min-width:600px){ .services{ grid-template-columns:1fr 1fr; } }
+  @media(min-width:940px){ .services{ grid-template-columns:1fr 1fr 1fr; } }
+  .card{
+    background:var(--paper); border:1px solid var(--hair); border-radius:var(--radius);
+    padding:1.6rem 1.5rem; box-shadow:var(--shadow-sm);
+    transition:transform .2s ease, border-color .2s ease, box-shadow .2s ease;
+  }
+  .service .ic{
+    width:46px;height:46px;border-radius:12px; margin-bottom:1.1rem;
+    background:var(--primary-soft); color:var(--primary-strong);
+    display:grid;place-items:center; border:1px solid var(--primary-line);
+  }
+  .service .ic svg{ width:24px;height:24px; }
+  .service h3{ font-size:1.18rem; margin-bottom:.4rem; }
+  .service p{ color:var(--muted); margin:0; font-size:.98rem; }
+  .service:hover{ transform:translateY(-3px); border-color:var(--primary-line); box-shadow:var(--shadow-md); }
+
+  /* ===== SOBRE ====================================================== */
+  .about-grid{ display:grid; gap:clamp(28px,5vw,56px); align-items:center; }
+  @media(min-width:860px){ .about-grid{ grid-template-columns:.85fr 1.15fr; } }
+  .about-grid .arch{ aspect-ratio:5/6; max-width:420px; }
+  .about-body h2{ font-size:clamp(1.7rem,4vw,2.4rem); margin-bottom:1.1rem; }
+  .about-body p{ color:var(--muted); margin:0 0 1rem; }
+  .about-body strong{ color:var(--ink); font-weight:600; }
+  .rt-line{
+    margin-top:1.4rem; padding:1rem 1.2rem; border-radius:12px;
+    background:var(--primary-tint); border:1px solid var(--primary-line);
+    font-family:"Instrument Sans", system-ui, sans-serif; font-size:.82rem; color:var(--ink); letter-spacing:.01em;
+    display:flex; align-items:center; gap:.7em;
+  }
+  .rt-line svg{ width:18px;height:18px;color:var(--primary-strong);flex:none; }
+
+  /* ===== ESTRUTURA (galeria) ======================================= */
+  .gallery{ display:grid; gap:16px; grid-template-columns:1fr; }
+  @media(min-width:640px){ .gallery{ grid-template-columns:1fr 1fr; } }
+  @media(min-width:940px){ .gallery{ grid-template-columns:1fr 1fr 1fr; } }
+  .shot{ border-radius:var(--radius); overflow:hidden; border:1px solid var(--hair); box-shadow:var(--shadow-sm); aspect-ratio:4/5; background:var(--primary-soft); }
+  .shot img{ width:100%; height:100%; object-fit:cover; transition:transform .5s ease; }
+  .shot:hover img{ transform:scale(1.04); }
+  .shot--tall{ border-radius:120px 120px var(--radius) var(--radius); } /* eco do arco */
+
+  /* ===== AVALIAÇÕES ================================================= */
+  .reviews{ display:grid; gap:16px; grid-template-columns:1fr; }
+  @media(min-width:720px){ .reviews{ grid-template-columns:1fr 1fr; } }
+  @media(min-width:1000px){
+    .reviews{ grid-template-columns:1fr 1fr 1fr; align-items:start; }
+    /* leve degrau no card do meio — desfaz a simetria perfeita dos 3 depoimentos */
+    .reviews .review:nth-child(2){ margin-top:22px; }
+  }
+  .review{ display:flex; flex-direction:column; gap:.9rem; }
+  .stars{ display:flex; gap:2px; color:var(--gold); }
+  .stars svg{ width:18px;height:18px; }
+  .review p{ margin:0; color:var(--ink); font-size:1rem; }
+  .review .who{ margin-top:auto; display:flex; align-items:center; gap:.7rem; padding-top:.4rem; }
+  .review .who .av{ width:38px;height:38px;border-radius:50%; background:var(--primary-soft); color:var(--primary-strong); border:1px solid var(--primary-line); display:grid;place-items:center; font-family:"Bricolage Grotesque",sans-serif; font-weight:600; }
+  .review .who .nm{ font-weight:600; font-size:.95rem; }
+  .review .who .src{ font-family:"Instrument Sans", system-ui, sans-serif; font-size:.7rem; color:var(--muted); }
+  .reviews-cta{ margin-top:2rem; display:flex; justify-content:center; }
+
+  /* ===== LOCALIZAÇÃO =============================================== */
+  .loc-grid{ display:grid; gap:24px; }
+  @media(min-width:880px){ .loc-grid{ grid-template-columns:1fr 1fr; align-items:stretch; } }
+  .map-frame{ border-radius:var(--radius); overflow:hidden; border:1px solid var(--hair); box-shadow:var(--shadow-sm); min-height:320px; background:var(--primary-soft); }
+  .map-frame iframe{ width:100%; height:100%; min-height:320px; border:0; display:block; }
+  .loc-info{ background:var(--paper); border:1px solid var(--hair); border-radius:var(--radius); padding:clamp(24px,4vw,36px); box-shadow:var(--shadow-sm); display:flex; flex-direction:column; }
+  .loc-info h2{ font-size:clamp(1.5rem,3.5vw,2rem); margin-bottom:1.4rem; }
+  .info-row{ display:flex; gap:.9rem; padding:.9rem 0; border-top:1px solid var(--hair); }
+  .info-row:first-of-type{ border-top:0; padding-top:0; }
+  .info-row .ic{ color:var(--primary-strong); flex:none; margin-top:2px; }
+  .info-row .ic svg{ width:20px;height:20px; }
+  .info-row .k{ display:block; font-family:"Instrument Sans", system-ui, sans-serif; font-size:.68rem; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); margin-bottom:.2rem; }
+  .info-row .v{ display:block; color:var(--ink); }
+  .info-row a.v:hover{ color:var(--primary-strong); }
+  .loc-info .btn{ margin-top:1.6rem; }
+
+  /* ===== RODAPÉ ==================================================== */
+  footer.site{ background:var(--ink); color:color-mix(in srgb, var(--bone), transparent 22%); padding-block:clamp(44px,7vw,72px); }
+  .foot-grid{ display:grid; gap:28px; }
+  @media(min-width:760px){ .foot-grid{ grid-template-columns:1.3fr 1fr 1fr; } }
+  .foot-brand{ font-family:"Bricolage Grotesque",sans-serif; font-weight:600; font-size:1.35rem; color:#fff; letter-spacing:-0.02em; margin-bottom:.8rem; display:flex; align-items:center; gap:.55rem; }
+  .foot-brand img{ height:32px; }
+  footer .col h4{ font-family:"Instrument Sans", system-ui, sans-serif; font-weight:500; font-size:.7rem; letter-spacing:.12em; text-transform:uppercase; color:color-mix(in srgb,var(--primary),#fff 40%); margin:0 0 .9rem; }
+  footer .col p, footer .col a{ margin:0 0 .5rem; color:color-mix(in srgb, var(--bone), transparent 30%); text-decoration:none; font-size:.95rem; display:block; }
+  footer .col a:hover{ color:#fff; }
+  .legal{
+    margin-top:clamp(28px,5vw,44px); padding-top:22px; border-top:1px solid color-mix(in srgb,#fff,transparent 88%);
+    display:flex; flex-wrap:wrap; gap:.4rem 1.2rem; align-items:center; justify-content:space-between;
+    font-size:.82rem; color:color-mix(in srgb, var(--bone), transparent 45%);
+  }
+  .legal .rt{ font-family:"Instrument Sans", system-ui, sans-serif; letter-spacing:.02em; }
+  .legal .rt b{ color:#fff; font-weight:500; }
+  .legal .note{ max-width:52ch; }
+
+  /* ===== WHATSAPP FLUTUANTE ======================================== */
+  .wa-float{
+    position:fixed; right:18px; bottom:18px; z-index:70;
+    width:60px; height:60px; border-radius:50%;
+    background:#25D366; color:#fff; display:grid; place-items:center;
+    box-shadow:0 10px 30px -8px rgba(37,211,102,.6), 0 4px 12px rgba(0,0,0,.18);
+    text-decoration:none; transition:transform .2s ease;
+  }
+  .wa-float:hover{ transform:scale(1.07) translateY(-2px); }
+  .wa-float svg{ width:32px; height:32px; }
+  .wa-float::after{ /* pulso sutil */
+    content:""; position:absolute; inset:0; border-radius:50%;
+    box-shadow:0 0 0 0 rgba(37,211,102,.45); animation:pulse 2.6s ease-out infinite;
+  }
+  @keyframes pulse{ to{ box-shadow:0 0 0 16px rgba(37,211,102,0); } }
+  @media(min-width:560px){ .wa-float{ right:26px; bottom:26px; } }
+
+  /* ===== SCROLL OFFSET + REVEAL ==================================== */
+  section[id]{ scroll-margin-top:86px; }
+  .reveal{ opacity:0; transform:translateY(18px); transition:opacity .7s ease, transform .7s ease; }
+  .reveal.in{ opacity:1; transform:none; }
+  .reveal.d1{ transition-delay:.08s; } .reveal.d2{ transition-delay:.16s; } .reveal.d3{ transition-delay:.24s; }
+
+  :where(a,button):focus-visible{ outline:2px solid var(--primary-strong); outline-offset:3px; border-radius:6px; }
+
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+    *{ animation:none !important; transition:none !important; }
+    .reveal{ opacity:1; transform:none; }
+  }
+</style>
+</head>
+
+<body>
+
+<!-- ============================ HEADER ============================ -->
+<header class="site" id="top">
+  <div class="wrap bar">
+    <a class="brand" href="#top" aria-label="Pinheiro Odontologia — início">
+      <!-- Se houver logo, descomente a linha abaixo e apague o .mark -->
+      <!-- <img src="imagens/logo.jpg" alt="Pinheiro Odontologia" /> -->
+      <span class="mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c-2.5 0-3.5 1-5 1S4 3 4 6c0 4 1.5 6 2.5 9C7.2 17 7.5 20 9 20c1.2 0 1-2 3-2s1.8 2 3 2c1.5 0 1.8-3 2.5-5C21.5 12 20 6 20 6c0-3-1.5-2-3-2s-2.5-1-5-1Z"/></svg>
+      </span>
+      <span class="brand-name">Pinheiro Odontologia</span>
+    </a>
+    <a class="btn btn-primary header-cta" href="https://wa.me/5547984802548?text=Ol%C3%A1%21%20Gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o." target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.7 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2Zm5.8 14.2c-.2.7-1.4 1.3-2 1.4-.5.1-1.2.1-1.9-.1-.4-.1-1-.3-1.7-.6-3-1.3-4.9-4.3-5-4.5-.2-.2-1.3-1.7-1.3-3.2 0-1.5.8-2.3 1-2.6.3-.3.6-.4.8-.4h.6c.2 0 .4 0 .7.5l.9 2c.1.2.1.4 0 .6l-.5.7c-.2.2-.3.4-.1.7.2.3.9 1.4 1.9 2.3 1.3 1.1 2.3 1.5 2.6 1.6.3.1.5.1.7-.1l.8-1c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.5.4.1.2.1.7-.1 1.3Z"/></svg>
+      <span class="lbl-full">Agendar no WhatsApp</span>
+      <span class="lbl-short">Agendar</span>
+    </a>
+  </div>
+</header>
+
+<main>
+
+<!-- ============================ HERO ============================= -->
+<section class="hero" aria-labelledby="hero-title">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <p class="hero-kicker reveal">Clínica odontológica · Centro, São Bento do Sul</p>
+      <h1 id="hero-title" class="reveal d1">Pinheiro Odontologia — <span class="loc">Dentista em Centro, São Bento do Sul</span></h1>
+      <p class="lead reveal d2">Clínico geral, ortodontia, implantes e próteses em Centro, São Bento do Sul. Ortodontia, implante, prótese e clínica geral — atendimento cuidadoso, do primeiro contato ao acompanhamento.</p>
+      <div class="hero-actions reveal d3">
+        <a class="btn btn-primary" href="https://wa.me/5547984802548?text=Ol%C3%A1%21%20Gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o." target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.7 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2Zm5.8 14.2c-.2.7-1.4 1.3-2 1.4-.5.1-1.2.1-1.9-.1-.4-.1-1-.3-1.7-.6-3-1.3-4.9-4.3-5-4.5-.2-.2-1.3-1.7-1.3-3.2 0-1.5.8-2.3 1-2.6.3-.3.6-.4.8-.4h.6c.2 0 .4 0 .7.5l.9 2c.1.2.1.4 0 .6l-.5.7c-.2.2-.3.4-.1.7.2.3.9 1.4 1.9 2.3 1.3 1.1 2.3 1.5 2.6 1.6.3.1.5.1.7-.1l.8-1c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.5.4.1.2.1.7-.1 1.3Z"/></svg>
+          Agendar avaliação
+        </a>
+        <a class="btn btn-ghost" href="#localizacao">Como chegar</a>
+      </div>
+      <div class="trust reveal d3">
+        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Seg a Sex, 8h às 18h30</span>
+        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-5.2-7-11a7 7 0 0 1 14 0c0 5.8-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>Centro, São Bento do Sul</span>
+        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6l7-3Z"/><path d="M9.5 12l1.7 1.7 3.3-3.4"/></svg>Resp. téc. CRO-SC (a confirmar)</span>
+      </div>
+    </div>
+
+    <div class="hero-photo reveal d2">
+      <figure class="arch">
+        <img src="imagens/fachada.png" alt="Fachada da Pinheiro Odontologia, em Centro, São Bento do Sul" width="800" height="1000" fetchpriority="high" />
+        <figcaption class="badge"><b>Pinheiro Odontologia</b> · Centro</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ========================== SERVIÇOS =========================== -->
+<section class="section section--tint" id="servicos" aria-labelledby="serv-title">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <h2 id="serv-title"><span class="s-num" aria-hidden="true">01</span>Cuidado odontológico para toda a família</h2>
+      <p>Do check-up de rotina a tratamentos mais longos. Você recebe o diagnóstico e as opções antes de decidir qualquer coisa.</p>
+    </div>
+
+    <!-- Edite / remova cards conforme os serviços reais da clínica () -->
+    <div class="services">
+      <article class="card service reveal">
+        <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4c-2 0-3-.9-4.5-.9C5.5 3.1 4 4 4 7c0 3.5 1.2 5.4 2 8 .6 2 .8 4 2 4 1 0 1-2 2-2s1 2 2 2c1.2 0 1.4-2 2-4 .8-2.6 2-4.5 2-8 0-3-1.5-3.9-3.5-3.9C15 3.1 14 4 12 4Z"/></svg></span>
+        <h3>Clínico geral</h3>
+        <p>Consultas, limpeza e prevenção de rotina.</p>
+      </article>
+
+      <article class="card service reveal d1">
+        <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v7"/><path d="M9 6h6"/><path d="M10 10h4l-.6 6.5c-.1 1.3-.6 4.5-1.4 4.5s-1.3-3.2-1.4-4.5L10 10Z"/></svg></span>
+        <h3>Implantes</h3>
+        <p>Reposição de dentes perdidos. A avaliação define se o seu caso tem indicação.</p>
+      </article>
+
+      <article class="card service reveal d2">
+        <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="9" width="18" height="6" rx="3"/><path d="M8 9v6M12 9v6M16 9v6"/></svg></span>
+        <h3>Ortodontia</h3>
+        <p>Aparelho fixo ou alinhador, conforme o que o seu caso pede.</p>
+      </article>
+
+      <article class="card service reveal">
+        <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.4 3.6L17 8l-3.6 1.4L12 13l-1.4-3.6L7 8l3.6-1.4L12 3Z"/><path d="M18 14l.7 1.8L20.5 16l-1.8.7L18 18l-.7-1.3L15.5 16l1.8-.2L18 14Z"/></svg></span>
+        <h3>Clareamento</h3>
+        <p>Clareamento feito no consultório, com acompanhamento.</p>
+      </article>
+
+      <article class="card service reveal d1">
+        <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h16"/><path d="M6 8c0 4 .8 6 2 8 .5 1 .8 3 1 3s.5-2 1-3M16 8c0 4-.8 6-2 8-.5 1-.8 3-1 3"/></svg></span>
+        <h3>Próteses</h3>
+        <p>Próteses fixas e removíveis para voltar a mastigar e sorrir sem receio.</p>
+      </article>
+
+      <article class="card service reveal d2">
+        <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4c-1.7 0-2.6-.8-4-.8C6.6 3.2 5 4 5 6.6c0 3 1 4.6 1.7 6.8.5 1.7.7 3.4 1.7 3.4.8 0 .8-1.6 1.6-1.6s.8 1.6 1.6 1.6M14.5 14a2.5 2.5 0 1 0 5 0 2.5 2.5 0 0 0-5 0Z"/><path d="M17 11.5v.01"/></svg></span>
+        <h3>Odontopediatria</h3>
+        <p>Atendimento para crianças, no ritmo delas.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ SOBRE ============================ -->
+<section class="section" id="sobre" aria-labelledby="sobre-title">
+  <div class="wrap about-grid">
+    <div class="reveal">
+      <figure class="arch brand-arch">
+        <img src="imagens/logo.jpg" alt="Pinheiro Odontologia" loading="lazy" decoding="async" />
+      </figure>
+    </div>
+    <div class="about-body reveal d1">
+      <h2 id="sobre-title"><span class="s-num" aria-hidden="true">02</span>Quem vai te atender</h2>
+      <p>Na <strong>Pinheiro Odontologia</strong>, quem conduz a sua avaliação é o Dr. Marcelo Pinheiro, responsável técnico. Ortodontia, implante, prótese e clínica geral, no mesmo lugar.</p>
+      <p>Cada atendimento começa por entender o seu caso. Você recebe o diagnóstico e as opções com clareza, e decide com calma.</p>
+      <div class="rt-line">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6l7-3Z"/><path d="M9.5 12l1.7 1.7 3.3-3.4"/></svg>
+        Responsável técnico: Dr. Marcelo Pinheiro — CRO-SC (a confirmar)
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================== ESTRUTURA ========================= -->
+<section class="section section--tint" id="estrutura" aria-labelledby="estr-title">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <h2 id="estr-title"><span class="s-num" aria-hidden="true">03</span>Onde estamos</h2>
+      <p>Consultório próprio na Av. Dom Pedro II, no Centro de São Bento do Sul — fácil de encontrar e estacionar.</p>
+    </div>
+    <figure class="shot-wide reveal">
+      <img src="imagens/fachada.png" alt="Fachada da Pinheiro Odontologia, na Av. Dom Pedro II, Centro de São Bento do Sul" loading="lazy" decoding="async" />
+    </figure>
+  </div>
+</section>
+<style>
+  .shot-wide{ margin:0; border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow-md); max-width:760px; margin-inline:auto; }
+  .shot-wide img{ width:100%; height:auto; display:block; }
+</style>
+
+<!-- ========================= AVALIAÇÕES ========================= -->
+<!-- Use SOMENTE avaliações reais do Google. Sem depoimentos? Apague os cards
+     e deixe apenas o botão "Ver avaliações no Google". -->
+<section class="section" id="avaliacoes" aria-labelledby="aval-title">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <h2 id="aval-title"><span class="s-num" aria-hidden="true">04</span>O que dizem nossos pacientes</h2>
+      <p>Avaliações reais deixadas por pacientes no perfil da clínica no Google.</p>
+    </div>
+
+    <div class="reviews">
+      <article class="card review reveal">
+        <div class="stars" aria-label="5 de 5 estrelas">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.9 6 6.6.6-5 4.3 1.5 6.5L12 16l-6 3.4 1.5-6.5-5-4.3 6.6-.6L12 2Z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.9 6 6.6.6-5 4.3 1.5 6.5L12 16l-6 3.4 1.5-6.5-5-4.3 6.6-.6L12 2Z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.9 6 6.6.6-5 4.3 1.5 6.5L12 16l-6 3.4 1.5-6.5-5-4.3 6.6-.6L12 2Z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.9 6 6.6.6-5 4.3 1.5 6.5L12 16l-6 3.4 1.5-6.5-5-4.3 6.6-.6L12 2Z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.9 6 6.6.6-5 4.3 1.5 6.5L12 16l-6 3.4 1.5-6.5-5-4.3 6.6-.6L12 2Z"/></svg>
+        </div>
+        <p></p>
+        <div class="who"><span class="av" aria-hidden="true"></span><span><span class="nm">Rosemari</span><br><span class="src">via Google</span></span></div>
+      </article>
+
+      <article class="card review reveal d1">
+        <div class="stars" aria-label="5 de 5 estrelas">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.9 6 6.6.6-5 4.3 1.5 6.5L12 16l-6 3.4 1.5-6.5-5-4.3 6.6-.6L12 2Z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.9 6 6.6.6-5 4.3 1.5 6.5L12 16l-6 3.4 1.5-6.5-5-4.3 6.6-.6L12 2Z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.9 6 6.6.6-5 4.3 1.5 6.5L12 16l-6 3.4 1.5-6.5-5-4.3 6.6-.6L12 2Z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.9 6 6.6.6-5 4.3 1.5 6.5L12 16l-6 3.4 1.5-6.5-5-4.3 6.6-.6L12 2Z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.9 6 6.6.6-5 4.3 1.5 6.5L12 16l-6 3.4 1.5-6.5-5-4.3 6.6-.6L12 2Z"/></svg>
+        </div>
+        <p></p>
+        <div class="who"><span class="av" aria-hidden="true"></span><span><span class="nm">Rodrigo Hauck</span><br><span class="src">via Google</span></span></div>
+      </article>
+
+    </div>
+
+    <div class="reviews-cta reveal">
+      <a class="btn btn-ghost" href="#" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 1 1-6.2-8.5"/><path d="M21 4v4h-4"/></svg>
+        Ver avaliações no Google
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ========================= LOCALIZAÇÃO ======================== -->
+<section class="section section--tint" id="localizacao" aria-labelledby="loc-title">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <h2 id="loc-title"><span class="s-num" aria-hidden="true">05</span>Fácil de chegar, no Centro</h2>
+    </div>
+    <div class="loc-grid">
+      <div class="map-frame reveal">
+        <iframe src="https://www.google.com/maps?q=Av.+Dom+Pedro+II+62+São+Bento+do+Sul+SC&output=embed" title="Mapa da Pinheiro Odontologia" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+      </div>
+      <div class="loc-info reveal d1">
+        <h2>Venha nos visitar</h2>
+        <div class="info-row">
+          <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-5.2-7-11a7 7 0 0 1 14 0c0 5.8-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg></span>
+          <span><span class="k">Endereço</span><span class="v">Av. Dom Pedro II, 62 — Centro, São Bento do Sul - SC, 89280-139</span></span>
+        </div>
+        <div class="info-row">
+          <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
+          <span><span class="k">Horário</span><span class="v">Seg a Sex, 8h às 18h30</span></span>
+        </div>
+        <div class="info-row">
+          <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.4-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2Z"/></svg></span>
+          <span><span class="k">Telefone</span><a class="v" href="tel:+554736268126">(47) 3626-8126</a></span>
+        </div>
+        <a class="btn btn-primary" href="https://wa.me/5547984802548?text=Ol%C3%A1%21%20Gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o." target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.7 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2Zm5.8 14.2c-.2.7-1.4 1.3-2 1.4-.5.1-1.2.1-1.9-.1-.4-.1-1-.3-1.7-.6-3-1.3-4.9-4.3-5-4.5-.2-.2-1.3-1.7-1.3-3.2 0-1.5.8-2.3 1-2.6.3-.3.6-.4.8-.4h.6c.2 0 .4 0 .7.5l.9 2c.1.2.1.4 0 .6l-.5.7c-.2.2-.3.4-.1.7.2.3.9 1.4 1.9 2.3 1.3 1.1 2.3 1.5 2.6 1.6.3.1.5.1.7-.1l.8-1c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.5.4.1.2.1.7-.1 1.3Z"/></svg>
+          Agendar avaliação
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============================ RODAPÉ =========================== -->
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="col">
+        <div class="foot-brand">
+          <!-- <img src="imagens/logo.jpg" alt="Pinheiro Odontologia" /> -->
+          Pinheiro Odontologia
+        </div>
+        <p>Consultório odontológico em Centro, São Bento do Sul.</p>
+      </div>
+      <div class="col">
+        <h4>Contato</h4>
+        <a href="tel:+554736268126">(47) 3626-8126</a>
+        <a href="https://wa.me/5547984802548?text=Ol%C3%A1%21%20Gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o." target="_blank" rel="noopener">WhatsApp</a>
+        <p>Av. Dom Pedro II, 62 — Centro, São Bento do Sul - SC, 89280-139</p>
+      </div>
+      <div class="col">
+        <h4>Atendimento</h4>
+        <p>Seg a Sex, 8h às 18h30</p>
+        <a href="#servicos">Serviços</a>
+        <a href="#localizacao">Como chegar</a>
+      </div>
+    </div>
+    <div class="legal">
+      <span class="rt">Responsável técnico: <b>Dr. Marcelo Pinheiro</b> — CRO-SC (a confirmar)</span>
+      <span class="note">As informações deste site têm caráter informativo e não substituem uma consulta ou avaliação profissional.</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ===================== WHATSAPP FLUTUANTE ====================== -->
+<a class="wa-float" href="https://wa.me/5547984802548?text=Ol%C3%A1%21%20Gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o." target="_blank" rel="noopener" aria-label="Agendar avaliação pelo WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.7 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2Zm5.8 14.2c-.2.7-1.4 1.3-2 1.4-.5.1-1.2.1-1.9-.1-.4-.1-1-.3-1.7-.6-3-1.3-4.9-4.3-5-4.5-.2-.2-1.3-1.7-1.3-3.2 0-1.5.8-2.3 1-2.6.3-.3.6-.4.8-.4h.6c.2 0 .4 0 .7.5l.9 2c.1.2.1.4 0 .6l-.5.7c-.2.2-.3.4-.1.7.2.3.9 1.4 1.9 2.3 1.3 1.1 2.3 1.5 2.6 1.6.3.1.5.1.7-.1l.8-1c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.5.4.1.2.1.7-.1 1.3Z"/></svg>
+</a>
+
+<script>
+  // Sombra do header ao rolar
+  var head = document.querySelector('header.site');
+  var onScroll = function(){ head.classList.toggle('scrolled', window.scrollY > 8); };
+  onScroll(); window.addEventListener('scroll', onScroll, { passive:true });
+
+  // Reveal on scroll (respeita prefers-reduced-motion via CSS)
+  var els = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold:.12, rootMargin:'0px 0px -8% 0px' });
+    els.forEach(function(el){ io.observe(el); });
+  } else {
+    els.forEach(function(el){ el.classList.add('in'); });
+  }
+</script>
+</body>
+</html>
+<style>
+  .brand-arch{ background:#fff; display:grid; place-items:center; padding:14%; }
+  .brand-arch img{ width:100%; max-width:340px; height:auto; }
+</style>
