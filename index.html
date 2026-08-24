@@ -114,7 +114,7 @@
   /* ===== TOKENS ===================================================== */
   :root{
     /* >>> ÚNICA COR PARA TROCAR POR CLÍNICA <<< (tom médio/escuro p/ contraste) */
-    --primary: ; /* default clínico: #0E7C86 */
+    --primary: #7C8438; /* verde-oliva Pinheiro */
 
     /* Tudo abaixo deriva automaticamente da --primary */
     --primary-strong: color-mix(in srgb, var(--primary), #000 20%);
@@ -197,8 +197,8 @@
     will-change:transform;
   }
   .btn svg{ width:1.1em; height:1.1em; flex:none; }
-  .btn-primary{ background:var(--primary-strong); color:#fff; box-shadow:var(--shadow-sm); }
-  .btn-primary:hover{ background:var(--primary-hover); transform:translateY(-2px); }
+  .btn-primary{ background:#5f6a26; color:#fff; box-shadow:var(--shadow-sm); }
+  .btn-primary:hover{ background:#4d551f; transform:translateY(-2px); }
   .btn-ghost{ background:transparent; color:var(--ink); border-color:var(--hair); }
   .btn-ghost:hover{ border-color:var(--primary); color:var(--primary-strong); background:var(--paper); }
 
